@@ -1,11 +1,13 @@
-import { assets } from "./shared/assets/assets";
+import { Route, Routes } from "react-router-dom";
+import ClassesPage from "./pages/Classes/classes";
 
 function App() {
-  return (
-    <div className="container mx-auto px-4 2xl:px-20">
-      <img src={assets.card2} alt="notFound" />
-    </div>
-  );
+  return <>
+     <Routes>
+      <Route path="/" element={<h1 className="font-bold bg-black text-white">ahmed gouda</h1>} />
+      <Route path='/classes' element={<ClassesPage />} />
+     </Routes>
+  </>
 }
 
 export default App;
