@@ -1,10 +1,15 @@
-import { assets } from "./shared/assets/assets";
+import { Route, Routes } from "react-router-dom";
+import FrontPage from "./pages/FrontPage/FrontPage";
+import Menu from "./pages/Menu/Menu";
 
 function App() {
   return (
-    <div className="container mx-auto px-4 2xl:px-20">
-      <img src={assets.card2} alt="notFound" />
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<FrontPage />} />
+        <Route path="/menu" element={<Menu />} />
+      </Routes>
+    </>
   );
 }
 
