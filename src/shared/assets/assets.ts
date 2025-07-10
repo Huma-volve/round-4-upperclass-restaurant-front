@@ -7,6 +7,29 @@ import class2 from "./andrey.jpg";
 import class3 from "./mae.jpg";
 import class4 from "./monika.jpg";
 import class5 from "./roberta.png";
+import frontPage from "./front-page.webp";
+import menuPage from "./menu.webp";
+import menu1 from "./menu-1.webp";
+import menu2 from "./menu-2.webp";
+import menu3 from "./menu-3.webp";
+import menu4 from "./menu-4.webp";
+import menu5 from "./menu-5.webp";
+import menu6 from "./menu-6.jpg";
+import menu7 from "./menu-7.webp";
+import menu8 from "./menu-8.webp";
+import menu9 from "./menu-9.jpg";
+import menu10 from "./menu-10.webp";
+import menu11 from "./menu-11.webp";
+import menu12 from "./menu-12.webp";
+import menu13 from "./menu-13.webp";
+import menu14 from "./menu-14.webp";
+import resturant1 from "./resturant-1.png"
+import resturant2 from "./resturant-2.png"
+import resturant3 from "./resturant-3.png"
+import resturant4 from "./resturant-4.png"
+import resturant5 from "./resturant-5.png"
+import resturant6 from "./resturant-6.png"
+import resturant7 from "./resturant-7.png"
 
 export const assets = {
   card1,
@@ -17,5 +40,28 @@ export const assets = {
   class2,
   class3,
   class4,
-  class5
+  class5,
+  frontPage,
+  menuPage,
+  menu1,
+  menu2,
+  menu3,
+  menu4,
+  menu5,
+  menu6,
+  menu7,
+  menu8,
+  menu9,
+  menu10,
+  menu11,
+  menu12,
+  menu13,
+  menu14,
+  resturant1,
+  resturant2,
+  resturant3,
+  resturant4,
+  resturant5,
+  resturant6,
+  resturant7
 };

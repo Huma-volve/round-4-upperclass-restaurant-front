@@ -1,9 +1,22 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "./fonts/fonts.css";
 
 @custom-variant dark (&:is(.dark *));
 
 
+:root {
+  scroll-behavior: auto;
+  box-sizing: border-box;
+}
+
+.font-chillax {
+  font-family: "Chillax", sans-serif;
+}
+
+.font-bitter {
+  font-family: "Bitter Rose", cursive;
+}
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
