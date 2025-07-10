@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { assets } from "../../../shared/assets/assets";
 import classesStyle from "../../../shared/style/classess.module.scss";
+import { motion } from "motion/react";
 const ClassesComp = () => {
   const images = [
     assets.class1,
@@ -36,9 +37,6 @@ const ClassesComp = () => {
       description: "Homemade Honey",
       date: "june 16 ,2023",
     },
-    
-
-    
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -80,15 +78,25 @@ const ClassesComp = () => {
       >
         {images.map((img, idx) => (
           <div key={idx} className={classesStyle.slide}>
-            <div className={classesStyle["slide-content"]}>
+            <motion.div
+              className={classesStyle["slide-content"]}
+              initial={{ opacity: 0, y: -150 }}
+              animate={{ opacity: 1, y: 0 }} // ينزل لمكانه ويظهر
+              transition={{ duration: 3 }} // وقت الحركة
+            >
               <h3>{content[idx].title}</h3>
               <p>{content[idx].description}</p>
-              <span className={classesStyle["slide-date"]}>{content[idx].date}</span>
-            </div>
-            <img
+              <span className={classesStyle["slide-date"]}>
+                {content[idx].date}
+              </span>
+            </motion.div>
+            <motion.img
               src={img}
               alt={`img-${idx}`}
               className={classesStyle["track-image"]}
+              initial={{ opacity: 1, y: -30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
             />
           </div>
         ))}
