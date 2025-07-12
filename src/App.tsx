@@ -2,20 +2,20 @@ import { Route, Routes } from "react-router-dom";
 import { assets } from "./shared/assets/assets";
 import Navbar from "./shared/layout/Navbar";
 import Layout from "./shared/layout/Layout";
+import Contact from "./pages/Contact/Contact";
 
 function App() {
   return (
     <>
-    <div className="container mx-auto px-4 2xl:px-20 bg-amber-600 h-50 flex items-center">
+    
     <Routes>
       <Route path="/" element={<Layout/>}/>
+      <Route path="/contact" element={<Contact/>}/>
         
     </Routes>
     
     
-      
-       {/* <Navbar/> */}
-    </div>
+    
     </>
   );
 }
