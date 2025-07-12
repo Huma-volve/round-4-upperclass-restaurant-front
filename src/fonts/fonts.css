@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "Chillax";
+  src: url("./Chillax-Variable.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Bitter Rose";
+  src: url("./BitterRoseDEMO.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}

@@ -3,6 +3,8 @@ import { assets } from "./shared/assets/assets";
 import Navbar from "./shared/layout/Navbar";
 import Layout from "./shared/layout/Layout";
 import Contact from "./pages/Contact/Contact";
+import FrontPage from "./pages/FrontPage/FrontPage";
+import Menu from "./pages/Menu/Menu";
 
 function App() {
   return (
@@ -13,9 +15,6 @@ function App() {
       <Route path="/contact" element={<Contact/>}/>
         
     </Routes>
-    
-    
-    
     </>
   );
 }
