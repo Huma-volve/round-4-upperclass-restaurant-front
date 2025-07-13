@@ -1,10 +1,5 @@
 import { Link } from "react-router-dom";
-import {
-  Menu,
-  Clock,
-  ShoppingCart,
-  ChevronRight,
-} from "lucide-react";
+import { Menu, Clock, ShoppingCart, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -31,7 +26,6 @@ export default function Navbar() {
     { label: "Blog", path: "/blog" },
   ];
 
-  // حالة تحكم لفتح الـ Popover عند hover
   const [open, setOpen] = useState(false);
 
   return (
@@ -60,9 +54,11 @@ export default function Navbar() {
                     <ChevronRight className="w-4 h-4" />
                   </Link>
                 ))}
-                <Button className="mt-6 w-full rounded-full bg-black text-white hover:bg-zinc-900 text-sm font-semibold">
-                  BOOK A TABLE
-                </Button>
+                <Link to="/booktable">
+                  <Button className="rounded-4xl bg-black text-white py-4 px-6 hover:bg-zinc-900 text-sm tracking-wide flex gap-2.5 font-medium">
+                    BOOK A TABLE
+                  </Button>
+                </Link>
               </div>
             </SheetContent>
           </Sheet>
@@ -76,10 +72,17 @@ export default function Navbar() {
         >
           <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild>
-              <Menu className="w-5 h-5 cursor-pointer" />
+              <Menu className="w-5 h-5 cursor-pointer text-zinc-800" />
             </PopoverTrigger>
-            <PopoverContent side="bottom" align="start" className="w-56 p-2 rounded-xl shadow-lg bg-white">
-              <div className="px-3 py-2 text-sm text-zinc-500 font-semibold">Pages</div>
+            <PopoverContent
+              side="bottom"
+              align="start"
+              sideOffset={30}
+              className="w-56 p-2 rounded-xl shadow-lg bg-white"
+            >
+              <div className="px-3 py-2 text-sm text-zinc-500 font-semibold">
+                Pages
+              </div>
               {pages.map(({ label, path }) => (
                 <Link
                   key={label}
@@ -95,22 +98,30 @@ export default function Navbar() {
         </div>
 
         {/* Icons beside the menu */}
-        <Clock className="w-5 h-5 cursor-pointer" />
-        <ShoppingCart className="w-5 h-5 cursor-pointer" />
+        <Clock className="w-5 h-5 cursor-pointer text-zinc-800" />
+        <ShoppingCart className="w-5 h-5 cursor-pointer text-zinc-800" />
       </div>
 
       {/* Center Links (optional) */}
-      <div className="hidden md:flex gap-6 text-sm font-medium text-zinc-800">
-        <Link to="/menu" className="hover:text-black">Menu</Link>
-        <Link to="/restaurant" className="hover:text-black">Restaurant</Link>
-        <Link to="/classes" className="hover:text-black">Classes</Link>
+      <div className="hidden md:flex gap-6 text-[16px] font-medium text-zinc-800">
+        <Link to="/menu" className="hover:text-black">
+          Menu
+        </Link>
+        <Link to="/restaurant" className="hover:text-black">
+          Restaurant
+        </Link>
+        <Link to="/classes" className="hover:text-black">
+          Classes
+        </Link>
       </div>
 
       {/* CTA Button */}
       <div className="">
-        <Button className="rounded-4xl bg-black text-white py-4 px-6 hover:bg-zinc-900 text-sm tracking-wide	flex gap-2.5 font-medium">
-          BOOK A TABLE
-        </Button>
+        <Link to="/booktable">
+          <Button className="rounded-4xl bg-black text-white py-4 px-6 hover:bg-zinc-900 text-sm tracking-wide flex gap-2.5 font-medium">
+            BOOK A TABLE
+          </Button>
+        </Link>
       </div>
     </nav>
   );

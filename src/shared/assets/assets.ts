@@ -18,12 +18,14 @@ import menu11 from "./menu-11.webp";
 import menu12 from "./menu-12.webp";
 import menu13 from "./menu-13.webp";
 import menu14 from "./menu-14.webp";
+import contact from "./contact.jpg"
 
 export const assets = {
   card1,
   card2,
   card3,
   card4,
+  contact,
   frontPage,
   menuPage,
   menu1,
