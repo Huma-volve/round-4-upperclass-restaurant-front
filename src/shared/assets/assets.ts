@@ -2,7 +2,6 @@ import card1 from "./card1.svg";
 import card2 from "./card2.svg";
 import card3 from "./card3.svg";
 import card4 from "./card4.svg";
-import contact from "./contact.jpg"
 import frontPage from "./front-page.webp";
 import menuPage from "./menu.webp";
 import menu1 from "./menu-1.webp";
@@ -26,7 +25,6 @@ export const assets = {
   card2,
   card3,
   card4,
-  contact,
   contact,
   frontPage,
   menuPage,

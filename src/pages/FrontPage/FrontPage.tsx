@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { assets } from "@/shared/assets/assets";
+import Navbar from "@/shared/layout/Navbar";
 
 const FrontPage: React.FC = () => {
   return (
@@ -35,6 +36,9 @@ const FrontPage: React.FC = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="z-10 absolute bottom-7 left-1/2 -translate-x-1/2">
+      <Navbar/>
       </div>
     </section>
   );
