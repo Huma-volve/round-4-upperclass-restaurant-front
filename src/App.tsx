@@ -1,10 +1,15 @@
-import { assets } from "./shared/assets/assets";
+import { Route, Routes } from "react-router-dom";
+import Blog from "./pages/Blog/Components/Blog";
+import BlogItems from "./pages/Blog/BlogItems"; 
+import NotFound from "./pages/NotFound/NotFound"; 
 
 function App() {
   return (
-    <div className="container mx-auto px-4 2xl:px-20">
-      <img src={assets.card2} alt="notFound" />
-    </div>
+      <Routes>
+      <Route path="/" element={<Blog />} />
+      <Route path="/blog/:id" element={<BlogItems />} />
+      <Route path="*" element={<NotFound/>} />
+    </Routes>
   );
 }
 
