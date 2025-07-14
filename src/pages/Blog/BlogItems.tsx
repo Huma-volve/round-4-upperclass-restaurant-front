@@ -1,6 +1,9 @@
 import { useParams } from "react-router-dom";
 import { blogData } from "./BlogModel";
+import Navbar from "@/shared/layout/Navbar";
 
+import { assets } from "../../shared/assets/assets";
+import Footer from "@/shared/layout/Footer";
 function BlogItems() {
   const { id } = useParams();
   const blog = blogData.find((item) => item.id === Number(id));
@@ -14,33 +17,32 @@ function BlogItems() {
         <img
           src={blog.image}
           alt={blog.title}
-          className="absolute inset-0 w-full h-full object-cover brightness-50"
+          className="absolute inset-0 w-full h-full object-cover brightness-40"
         />
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
-          <h6 className="text-white text-3xl font-bold">Nique</h6>
-          <h6 className="text-[#FACE8D] text-3xl mt-2 font-semibold">Blog</h6>
-          <h6 className="text-white text-3xl mt-2 font-semibold">{blog.title}</h6>
+          {/* <h6 className="text-white text-3xl font-bold">Nique</h6> */}
+          <h6 className="font-bitter text-[#FACE8D] text-7xl mt-2 ">Blog</h6>
+          <h6 className="font-chillax text-white text-7xl mt-2 font-bold">{blog.title}</h6>
+        <div className="fixed bottom-10  mx-auto">
+                <Navbar/>
+              </div>
         </div>
       </div>
 
-      {/* Right Content */}
+       {/* Content */}
       <div className="md:w-1/2 w-full bg-black overflow-y-scroll scrollbar-hide h-auto md:h-full p-10 text-white">
-        <p className="text-[#FACE8D] text-2xl font-medium">{blog.date}</p>
-        <h2 className="text-3xl font-bold my-4">{blog.title}</h2>
-        <p className="text-lg leading-relaxed text-[#ffffffb3]">
-          {blog.description} {blog.description} {blog.description}
+        <p className="font-chillax text-lg leading-relaxed text-[#ffffffb3]"> Lorem ipsum dolor voluptates? Esse maxime ipsam ut. Voluptatem eligendi quia provident magnam. Asperiores fugit itaque sunt voluptatibus ut aspernatur. ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae voluptates voluptatem adipisci incidunt alias? Esse maxime ipsam ut. Voluptatem eligendi quia provident magnam. Asperiores fugit itaque sunt voluptatibus ut aspernatur.
         </p>
-
         <div className="w-full mt-8">
-          <img src={blog.image} className="rounded-2xl w-full" />
+            <img src={assets.blogHomeCard1} className="rounded-2xl  w-full" />
         </div>
-
-        <h2 className="text-3xl font-bold my-6 text-[#FACE8D]">Extra Content</h2>
-        <p className="text-lg leading-relaxed text-[#ffffffb3] mt-3">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
-          labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-          do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        <h2 className="text-3xl font-bold my-6 font-chillax text-[#ffffff]">Lorem ipsum dolor</h2>
+        <p className="font-chillax text-lg leading-relaxed text-[#ffffffb3] mt-3">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae voluptates voluptatem adipisci incidunt alias? Esse maxime ipsam ut. Voluptatem eligendi quia provident magnam. Asperiores fugit itaque sunt voluptatibus ut aspernatur.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae voluptates voluptatem adipisci incidunt alias? Esse maxime ipsam ut. Voluptatem eligendi quia provident magnam. Asperiores fugit itaque sunt voluptatibus ut aspernatur.
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae voluptates voluptatem adipisci incidunt alias? Esse maxime ipsam ut. Voluptatem eligendi quia provident magnam. Asperiores fugit itaque sunt voluptatibus ut aspernatur.
         </p>
+      <Footer/>
       </div>
     </div>
   );

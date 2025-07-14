@@ -1,3 +1,4 @@
+import Navbar from "@/shared/layout/Navbar";
 import { assets } from "../../shared/assets/assets";
 
 function NotFound() {
@@ -8,10 +9,13 @@ function NotFound() {
     >
       <div className="absolute inset-0 bg-black/70" />
 
-      <div className="relative z-10 text-center px-4">
-        <h1 className="text-white text-4xl md:text-6xl font-bold mb-4">nique.</h1>
-        <p className="text-[#FACE8D] text-2xl font-semibold">Page not found</p>
-        <h1 className="text-white text-8xl font-bold mt-4">404</h1>
+      <div className="relative z-10 text-center  ">
+        <p className="text-[#FACE8D] font-bitter text-6xl font-semibold">Page not found</p>
+        <h1 className="text-white font-chillax text-[150px] font-bold mt-4">404</h1>
+      </div>
+
+      <div className="fixed bottom-10">
+        <Navbar />
       </div>
     </div>
   );

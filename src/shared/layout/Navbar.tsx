@@ -29,7 +29,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="flex items-center justify-between px-4 py-3 gap-8 bg-white rounded-full  max-w-6xl mx-auto mt-4 font-chillax">
+    <nav className="flex items-center justify-between px-4 py-3 gap-8 bg-white rounded-full z-3  max-w-6xl mx-auto mt-4 font-chillax">
       {/* Left Icons */}
       <div className="flex items-center gap-4">
         {/* ☰ Small screens: Sheet */}
