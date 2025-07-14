@@ -19,11 +19,10 @@ function App() {
         <Route path="/menu" element={<Menu />} />
       <Route path="/contact" element={<Contact/>}/>
       <Route path="/booktable" element={<BookTable/>}/>
-        
-        <Route path="/blog/:id" element={<BlogItems />} />
+      <Route path="/Blog" element={<Blog/>}/>
+      <Route path="/blog/:id" element={<BlogItems />} />
       <Route path="*" element={<NotFound/>} />
     </Routes>
-      </Routes>
     </>
   );
 }
