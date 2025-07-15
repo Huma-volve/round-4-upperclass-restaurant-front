@@ -217,23 +217,23 @@ const Menu: React.FC = () => {
   };
 
   return (
-    <main className="md:flex">
-      {/* Left Side */}
-      <div className="xl:w-[50vw] w-full h-[40vh] xl:h-screen fixed xl:top-0 top-0 xl:left-0 left-0 z-10">
-        <div
-          className="relative w-full h-full bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${assets.menuPage})` }}
-        >
-          <div className="absolute inset-0 bg-[#050505] opacity-50 z-0" />
-          <div className="absolute inset-0 z-10 flex flex-col justify-between">
-            <Link
-              to="/"
-              className="text-white text-center pt-6 xl:pt-12 font-chillax font-medium text-2xl sm:text-[32px]"
-            >
-              nique.
-            </Link>
-            <div className="flex-1 flex items-center justify-center text-center px-4">
-              <div className="max-w-[50rem]">
+    <>
+      <main className="md:flex">
+        <div className="xl:w-[50vw] w-full h-[40vh] xl:h-screen z-10 items-center fixed xl:top-0 top-0 xl:left-0 left-0 right-0 xl:bottom-0 bottom-auto">
+          <div
+            style={{ backgroundImage: `url(${assets.menuPage})` }}
+            className="relative w-full h-full bg-cover bg-center items-center bg-no-repeat"
+          />
+          <Link
+            to={"/"}
+            className="font-chillax z-10 text-white text-center pt-6 xl:pt-12 pb-6 xl:pb-12 absolute top-0 left-0 right-0 bottom-auto font-medium text-2xl sm:text-[32px]"
+          >
+            nique.
+          </Link>
+          <div className="z-0 opacity-[.5] bg-[#050505] absolute top-0 left-0 right-0 bottom-0" />
+          <div className="absolute top-0 left-0 right-0 bottom-0 z-10 flex flex-col items-center justify-center text-center h-full px-4 text-white">
+            <div className="w-full max-w-[50rem] mx-auto text-center pt-6">
+              <div className="mb-4 xl:mb-8">
                 <h1 className="font-bitter text-[#FACE8D] text-3xl sm:text-4xl xl:text-5xl 2xl:text-[80px] mb-1">
                   Check Out
                 </h1>
@@ -247,27 +247,34 @@ const Menu: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
-      {/* Right Side */}
-      <div
-        ref={scrollContainerRef}
-        className="xl:w-[50vw] w-full xl:relative xl:left-[50vw] bg-[#050505] overflow-y-auto xl:h-screen h-[60vh] fixed xl:top-0 top-[40vh] bottom-0"
-      >
-        {/* Navigation Tabs */}
-        <div className="z-[10] text-white gap-4 xl:gap-12 bg-[#050505] justify-center items-center py-4 flex sticky top-0 left-0 right-0 overflow-x-auto xl:overflow-visible px-4 xl:px-0">
-          {menuData.map((item, index) => (
-            <a
-              key={index}
-              href={`#${item.label}`}
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick(item.label);
-              }}
-              className={`font-chillax whitespace-nowrap relative transition-colors duration-500 ease-in-out text-sm xl:text-base px-2 ${
-                activeNav === item.label
-                  ? "text-[#face8d] font-medium"
-                  : "text-[rgba(255,255,255,0.6)] hover:text-white"
-              }`}
+        <div className="xl:w-[50vw] w-full xl:relative xl:left-[50vw] bg-[#050505] overflow-y-auto xl:h-screen h-[60vh] fixed xl:top-0 top-[40vh] bottom-0">
+          {/* Navigation - Keep exactly as is */}
+          <div className="z-[10] text-white gap-4 xl:gap-12 bg-[#050505] justify-center items-center py-4 flex sticky top-0 left-0 right-0 overflow-x-auto xl:overflow-visible px-4 xl:px-0">
+            {menuData.map((item, index) => (
+              <a
+                key={index}
+                href={`#${item.label}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(item.label);
+                }}
+                className={`font-chillax whitespace-nowrap relative transition-colors duration-500 ease-in-out text-sm xl:text-base px-2 ${
+                  activeNav === item.label
+                    ? "text-[#face8d] font-medium"
+                    : "text-[rgba(255,255,255,0.6)] hover:text-white"
+                }`}
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
+
+          {/* Menu Sections */}
+          {menuData.map((category) => (
+            <section
+              key={category.label}
+              id={category.label}
+              className="p-14 pt-20"
             >
               {item.name}
             </a>

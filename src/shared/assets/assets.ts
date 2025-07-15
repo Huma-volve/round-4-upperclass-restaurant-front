@@ -2,7 +2,11 @@ import card1 from "./card1.svg";
 import card2 from "./card2.svg";
 import card3 from "./card3.svg";
 import card4 from "./card4.svg";
-
+import class1 from "./chad.jpg";
+import class2 from "./andrey.jpg";
+import class3 from "./mae.jpg";
+import class4 from "./monika.jpg";
+import class5 from "./roberta.png";
 import frontPage from "./front-page.webp";
 import menuPage from "./menu.webp";
 import menu1 from "./menu-1.webp";
@@ -19,6 +23,16 @@ import menu11 from "./menu-11.webp";
 import menu12 from "./menu-12.webp";
 import menu13 from "./menu-13.webp";
 import menu14 from "./menu-14.webp";
+import resturant1 from "./resturant-1.png"
+import resturant2 from "./resturant-2.png"
+import resturant3 from "./resturant-3.png"
+import resturant4 from "./resturant-4.png"
+import resturant5 from "./resturant-5.png"
+import resturant6 from "./resturant-6.png"
+import resturant7 from "./resturant-7.png"
+import Noodle from './Noodle.jpg'
+import Teacher from './Teacher.jpg'
+import Seecurry from './SeeCurry.jpg'
 import contact from "./contact.jpg"
 import blogHome from "./blog/blog-home.jpg";
 import blogHomeCard1 from "./blog/card1.jpg";
@@ -28,11 +42,18 @@ import blogHomeCard4 from "./blog/card4.jpg";
 import blogHomeCard5 from "./blog/card5.jpg";
 
 export const assets = {
+  Noodle,
+  Teacher,
+  Seecurry,
   card1,
   card2,
   card3,
   card4,
-
+  class1,
+  class2,
+  class3,
+  class4,
+  class5,
   contact,
   frontPage,
   menuPage,
@@ -50,7 +71,14 @@ export const assets = {
   menu12,
   menu13,
   menu14,
-    blogHome,
+  resturant1,
+  resturant2,
+  resturant3,
+  resturant4,
+  resturant5,
+  resturant6,
+  resturant7,
+  blogHome,
   blogHomeCard1,
   blogHomeCard2,
   blogHomeCard3,
