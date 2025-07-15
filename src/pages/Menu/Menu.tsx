@@ -230,7 +230,6 @@ const Menu: React.FC = () => {
   return (
     <>
       <main className="md:flex">
-        {/* Left Side */}
         <div className="xl:w-[50vw] w-full h-[40vh] xl:h-screen z-10 items-center fixed xl:top-0 top-0 xl:left-0 left-0 right-0 xl:bottom-0 bottom-auto">
           <div
             style={{ backgroundImage: `url(${assets.menuPage})` }}
@@ -256,7 +255,6 @@ const Menu: React.FC = () => {
             </div>
           </div>
         </div>
-        {/* Right Side */}
         <div className="xl:w-[50vw] w-full xl:relative xl:left-[50vw] bg-[#050505] overflow-y-auto xl:h-screen h-[60vh] fixed xl:top-0 top-[40vh] bottom-0">
           {/* Navigation - Keep exactly as is */}
           <div className="z-[10] text-white gap-4 xl:gap-12 bg-[#050505] justify-center items-center py-4 flex sticky top-0 left-0 right-0 overflow-x-auto xl:overflow-visible px-4 xl:px-0">
