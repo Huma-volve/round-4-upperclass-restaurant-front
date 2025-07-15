@@ -2,7 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { assets } from "../../../shared/assets/assets";
 import classesStyle from "../../../shared/style/classess.module.scss";
 import { motion } from "motion/react";
+import { useNavigate } from "react-router-dom";
 const ClassesComp = () => {
+  const navigate=useNavigate()
   const images = [
     assets.class1,
     assets.class2,
@@ -98,6 +100,9 @@ const ClassesComp = () => {
               initial={{ opacity: 1, y: -30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
+              onClick={() => {
+                navigate(`/classes/${idx+1}`);
+              }}
             />
           </div>
         ))}

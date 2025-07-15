@@ -30,8 +30,14 @@ import resturant4 from "./resturant-4.png"
 import resturant5 from "./resturant-5.png"
 import resturant6 from "./resturant-6.png"
 import resturant7 from "./resturant-7.png"
+import Noodle from './Noodle.jpg'
+import Teacher from './Teacher.jpg'
+import Seecurry from './SeeCurry.jpg'
 
 export const assets = {
+  Noodle,
+  Teacher,
+  Seecurry,
   card1,
   card2,
   card3,
@@ -64,4 +70,5 @@ export const assets = {
   resturant5,
   resturant6,
   resturant7
+
 };
