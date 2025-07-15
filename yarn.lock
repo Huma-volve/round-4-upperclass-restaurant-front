@@ -1336,7 +1336,6 @@ flatted@^3.2.9:
   version "3.3.3"
   resolved "https://registry.npmjs.org/flatted/-/flatted-3.3.3.tgz"
   integrity sha512-GX+ysw4PBCz0PzosHDepZGANEuFCMLrnRTiEy9McGjmkCQYwRq4A/X786G/fjM/+OjsWSU1ZrY5qyARZmO/uwg==
-
 framer-motion@^12.23.1:
   version "12.23.1"
   resolved "https://registry.npmjs.org/framer-motion/-/framer-motion-12.23.1.tgz"
@@ -1345,7 +1344,6 @@ framer-motion@^12.23.1:
     motion-dom "^12.23.1"
     motion-utils "^12.23.1"
     tslib "^2.4.0"
-
 gensync@^1.0.0-beta.2:
   version "1.0.0-beta.2"
   resolved "https://registry.npmjs.org/gensync/-/gensync-1.0.0-beta.2.tgz"

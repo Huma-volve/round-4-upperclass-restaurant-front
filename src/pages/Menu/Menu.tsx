@@ -1,8 +1,9 @@
 import { assets } from "@/shared/assets/assets";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Leaf } from "lucide-react";
 import Footer from "@/shared/layout/Footer";
+import Navbar from "@/shared/layout/Navbar";
 
 interface MenuItem {
   id: string;
@@ -154,10 +155,12 @@ const menuData: MenuCategory[] = [
     ],
   },
 ];
+
 const Menu: React.FC = () => {
   const [activeNav, setActiveNav] = useState<string>(menuData[0].label);
   const [transitioning, setTransitioning] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -170,61 +173,47 @@ const Menu: React.FC = () => {
   }, []);
 
   useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
     const handleScroll = () => {
       if (transitioning) return;
 
-      const scrollPosition = window.scrollY + (isMobile ? 50 : 100);
+      const scrollPosition = container.scrollTop + (isMobile ? 50 : 100);
 
       menuData.forEach((item) => {
         const section = document.getElementById(item.label);
         if (section) {
-          const sectionTop = section.offsetTop;
-          const sectionBottom = sectionTop + section.offsetHeight;
+          const offsetTop = section.offsetTop;
+          const offsetBottom = offsetTop + section.offsetHeight;
 
-          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+          if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
             setActiveNav(item.label);
           }
         }
       });
     };
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check
-    return () => window.removeEventListener("scroll", handleScroll);
+    container.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => container.removeEventListener("scroll", handleScroll);
   }, [transitioning, isMobile]);
 
   const handleNavClick = (label: string) => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
     setTransitioning(true);
-    let currentIndex = menuData.findIndex((item) => item.label === activeNav);
-    const targetIndex = menuData.findIndex((item) => item.label === label);
-
-    const steps = Math.abs(targetIndex - currentIndex);
-    const duration = 300;
-    const stepDuration = duration / steps;
-
-    const direction = targetIndex > currentIndex ? 1 : -1;
-
-    let step = 0;
-    const animate = () => {
-      if (step >= steps) {
-        setActiveNav(label);
-        setTransitioning(false);
-        return;
-      }
-
-      currentIndex += direction;
-      setActiveNav(menuData[currentIndex].label);
-      step++;
-
-      setTimeout(animate, stepDuration);
-    };
-
-    animate();
 
     document.getElementById(label)?.scrollIntoView({
       behavior: "smooth",
       block: isMobile ? "start" : "center",
     });
+
+    setTimeout(() => {
+      setActiveNav(label);
+      setTransitioning(false);
+    }, 500);
   };
 
   return (
@@ -248,10 +237,13 @@ const Menu: React.FC = () => {
                 <h1 className="font-bitter text-[#FACE8D] text-3xl sm:text-4xl xl:text-5xl 2xl:text-[80px] mb-1">
                   Check Out
                 </h1>
-                <h1 className="font-chillax text-[#fff] text-4xl sm:text-5xl xl:text-6xl 2xl:text-[80px] font-bold tracking-[-2px]">
+                <h1 className="font-chillax text-white text-4xl sm:text-5xl xl:text-6xl 2xl:text-[80px] font-bold tracking-[-2px]">
                   Our Menu
                 </h1>
               </div>
+            </div>
+            <div className="w-full flex justify-center mb-12">
+              <Navbar />
             </div>
           </div>
         </div>
@@ -284,62 +276,72 @@ const Menu: React.FC = () => {
               id={category.label}
               className="p-14 pt-20"
             >
-              <h2 className="font-bitter text-3xl xl:text-[3.5rem] text-[#face8d] leading-[90%] mb-8 xl:mb-12">
-                {category.name}
-              </h2>
-              <div className="font-chillax flex flex-col items-start gap-8 xl:gap-12 text-white">
-                {category.items.map((item) => (
-                  <div
-                    key={item.id}
-                    className="flex flex-none items-center relative self-stretch gap-4 xl:gap-6"
-                  >
-                    <div className="w-20 xl:w-24 h-20 xl:h-24 rounded-lg xl:rounded-xl relative overflow-hidden flex-shrink-0">
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="flex flex-1 flex-col items-stretch gap-1 xl:gap-2">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2 xl:gap-3">
-                          <h3 className="text-lg xl:text-xl font-medium">
-                            {item.name}
-                          </h3>
-                          {item.vegetarian && (
-                            <Leaf className="text-[#face8d] w-4 h-4 xl:w-5 xl:h-5" />
-                          )}
-                        </div>
-                        <div className="flex flex-none gap-2 xl:gap-3 items-center">
-                          {item.discount ? (
-                            <>
-                              <span className="text-base xl:text-lg line-through text-[rgba(255,255,255,0.4)]">
-                                {item.price}
-                              </span>
-                              <span className="text-base xl:text-lg text-white font-medium">
-                                {item.discount}
-                              </span>
-                            </>
-                          ) : (
-                            <span className="text-base xl:text-lg text-white font-medium">
+              {item.name}
+            </a>
+          ))}
+        </div>
+        {/* Menu Sections */}
+        {menuData.map((category) => (
+          <section
+            key={category.label}
+            id={category.label}
+            className="p-14 pt-20"
+          >
+            <h2 className="font-bitter text-3xl xl:text-[3.5rem] text-[#face8d] leading-[90%] mb-8 xl:mb-12">
+              {category.name}
+            </h2>
+            <div className="font-chillax flex flex-col items-start gap-8 xl:gap-12 text-white">
+              {category.items.map((item) => (
+                <div
+                  key={item.id}
+                  className="flex flex-none items-center relative self-stretch gap-4 xl:gap-6"
+                >
+                  <div className="w-20 xl:w-24 h-20 xl:h-24 rounded-lg xl:rounded-xl relative overflow-hidden flex-shrink-0">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col items-stretch gap-1 xl:gap-2">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2 xl:gap-3">
+                        <h3 className="text-lg xl:text-xl font-medium">
+                          {item.name}
+                        </h3>
+                        {item.vegetarian && (
+                          <Leaf className="text-[#face8d] w-4 h-4 xl:w-5 xl:h-5" />
+                        )}
+                      </div>
+                      <div className="flex flex-none gap-2 xl:gap-3 items-center">
+                        {item.discount ? (
+                          <>
+                            <span className="text-base xl:text-lg line-through text-[rgba(255,255,255,0.4)]">
                               {item.price}
                             </span>
-                          )}
-                        </div>
+                            <span className="text-base xl:text-lg text-white font-medium">
+                              {item.discount}
+                            </span>
+                          </>
+                        ) : (
+                          <span className="text-base xl:text-lg text-white font-medium">
+                            {item.price}
+                          </span>
+                        )}
                       </div>
-                      <p className="text-sm xl:text-base text-[rgba(255,255,255,0.6)] leading-relaxed">
-                        {item.description}
-                      </p>
                     </div>
+                    <p className="text-sm xl:text-base text-[rgba(255,255,255,0.6)] leading-relaxed">
+                      {item.description}
+                    </p>
                   </div>
-                ))}
-              </div>
-            </section>
-          ))}
-          <Footer />
-        </div>
-      </main>
-    </>
+                </div>
+              ))}
+            </div>
+          </section>
+        ))}
+        <Footer />
+      </div>
+    </main>
   );
 };
 
