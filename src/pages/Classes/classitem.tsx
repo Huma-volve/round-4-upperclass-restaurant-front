@@ -3,6 +3,7 @@ import { assets } from "../../../src/shared/assets/assets";
 import { motion } from "motion/react";
 import classesStyle from "../../../src/shared/style/classess.module.scss";
 import ClassItemCom from "./components/classItemCom";
+import Navbar from "@/shared/layout/Navbar";
 
 const Classitem = () => {
   const { id } = useParams();
@@ -51,27 +52,30 @@ const Classitem = () => {
   }
 
   return (
-    <div className="flex flex-col md:flex-row h-screen w-full">
+    <div className="flex flex-col md:flex-row h-screen w-full  ">
       <div className="w-full md:w-1/2 relative">
         <motion.img
           src={item.image}
           alt={item.title}
           className={classesStyle["track-image"]}
-          
         />
         <motion.div
           className={`${classesStyle["slide-content"]} font-chillax    `}
           initial={{ opacity: 0, y: -150 }}
-          animate={{ opacity: 1, y: -100 }} 
-          transition={{ duration: 2 }} 
+          animate={{ opacity: 1, y: -100 }}
+          transition={{ duration: 2 }}
         >
           <h3 className="font-bold text-yellow-500  font-bitter">
             {item.title}
           </h3>
           <h1 className="font-bold text-4xl">{item.description}</h1>
         </motion.div>
+        <div className="z-10 absolute bottom-7 left-1/2 -translate-x-1/2">
+          <Navbar />
+        </div>
       </div>
-      <ClassItemCom/>
+
+      <ClassItemCom />
     </div>
   );
 };

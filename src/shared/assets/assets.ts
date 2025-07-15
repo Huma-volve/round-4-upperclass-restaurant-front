@@ -33,6 +33,13 @@ import resturant7 from "./resturant-7.png"
 import Noodle from './Noodle.jpg'
 import Teacher from './Teacher.jpg'
 import Seecurry from './SeeCurry.jpg'
+import contact from "./contact.jpg"
+import blogHome from "./blog/blog-home.jpg";
+import blogHomeCard1 from "./blog/card1.jpg";
+import blogHomeCard2 from "./blog/card2.jpg";
+import blogHomeCard3 from "./blog/card3.jpg";
+import blogHomeCard4 from "./blog/card4.jpg";
+import blogHomeCard5 from "./blog/card5.jpg";
 
 export const assets = {
   Noodle,
@@ -47,6 +54,7 @@ export const assets = {
   class3,
   class4,
   class5,
+  contact,
   frontPage,
   menuPage,
   menu1,
@@ -69,6 +77,11 @@ export const assets = {
   resturant4,
   resturant5,
   resturant6,
-  resturant7
-
+  resturant7,
+  blogHome,
+  blogHomeCard1,
+  blogHomeCard2,
+  blogHomeCard3,
+  blogHomeCard4,
+  blogHomeCard5,
 };

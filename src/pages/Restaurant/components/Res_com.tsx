@@ -1,6 +1,7 @@
 import { assets } from "@/shared/assets/assets";
 import { useEffect, useRef, useState } from "react";
 import resurnat from "../../../shared/style/resturnat.module.scss";
+import Navbar from "@/shared/layout/Navbar";
 
 const Page = () => {
   const images = [
@@ -42,7 +43,7 @@ const Page = () => {
   }, []);
 
   return (
-    <div className={resurnat.viewport} ref={containerRef}>
+    <div className={`${resurnat.viewport} relative`} ref={containerRef}>
       <div
         className={resurnat["image-track"]}
         style={{
@@ -50,9 +51,25 @@ const Page = () => {
         }}
       >
         {images.map((img, idx) => (
-          <img src={img} key={idx} alt={`img-${idx}`} className={resurnat["track-image"]} />
+          <img
+            src={img}
+            key={idx}
+            alt={`img-${idx}`}
+            className={resurnat["track-image"]}
+          />
         ))}
       </div>
+      <div className="z-10 absolute bottom-7 left-1/2 -translate-x-1/2">
+        <h1 className="-translate-y-80 font-bold  text-white text-center font-chillax text-2xl">
+          nique.
+        </h1>
+        <div className=" absolute  w-full -translate-y-60 flex justify-center flex-col items-center gap-4">
+          <h1 className="font-bitter text-yellow-400 text-6xl font-bold">Discover</h1>
+          <h2 className="text-9xl text-white font-bold font-b ">nique.</h2>
+        </div>
+        <Navbar />
+      </div>
+      s
     </div>
   );
 };

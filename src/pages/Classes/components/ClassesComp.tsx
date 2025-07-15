@@ -3,8 +3,9 @@ import { assets } from "../../../shared/assets/assets";
 import classesStyle from "../../../shared/style/classess.module.scss";
 import { motion } from "motion/react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "@/shared/layout/Navbar";
 const ClassesComp = () => {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const images = [
     assets.class1,
     assets.class2,
@@ -82,12 +83,13 @@ const ClassesComp = () => {
           <div key={idx} className={`${classesStyle.slide}`}>
             <motion.div
               className={`${classesStyle["slide-content"]} font-chillax    `}
-    
               initial={{ opacity: 0, y: -150 }}
               animate={{ opacity: 1, y: 0 }} // ينزل لمكانه ويظهر
               transition={{ duration: 3 }} // وقت الحركة
             >
-              <h3 className="font-bold text-yellow-500  font-bitter" >{content[idx].title}</h3>
+              <h3 className="font-bold text-yellow-500  font-bitter">
+                {content[idx].title}
+              </h3>
               <p className="font-bold text-2xl">{content[idx].description}</p>
               <span className={`${classesStyle["slide-date"]} text-yellow-500`}>
                 {content[idx].date}
@@ -101,11 +103,14 @@ const ClassesComp = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
               onClick={() => {
-                navigate(`/classes/${idx+1}`);
+                navigate(`/classes/${idx + 1}`);
               }}
             />
           </div>
         ))}
+      </div>
+      <div className="z-10 absolute bottom-7 left-1/2 -translate-x-1/2">
+        <Navbar />
       </div>
     </div>
   );
