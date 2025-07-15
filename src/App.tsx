@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import Layout from "./shared/layout/Layout";
 import FrontPage from "./pages/FrontPage/FrontPage";
 import Menu from "./pages/Menu/Menu";
 import Contact from "./pages/Contact/Contact";
@@ -9,14 +8,12 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Layout/>}/>
         <Route path="/" element={<FrontPage />} />
         <Route path="/menu" element={<Menu />} />
-      <Route path="/contact" element={<Contact/>}/>
-      <Route path="/booktable" element={<BookTable/>}/>
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/booktable" element={<BookTable />} />
       </Routes>
     </>
-    
   );
 }
 
