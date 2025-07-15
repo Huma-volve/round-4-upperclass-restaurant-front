@@ -1,3 +1,4 @@
+/* Improved Text Handling Version */
 import { assets } from "@/shared/assets/assets";
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
@@ -166,7 +167,6 @@ const Menu: React.FC = () => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-
     checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
@@ -178,7 +178,6 @@ const Menu: React.FC = () => {
 
     const handleScroll = () => {
       if (transitioning) return;
-
       const scrollPosition = container.scrollTop + (isMobile ? 50 : 100);
 
       menuData.forEach((item) => {
@@ -186,7 +185,6 @@ const Menu: React.FC = () => {
         if (section) {
           const offsetTop = section.offsetTop;
           const offsetBottom = offsetTop + section.offsetHeight;
-
           if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
             setActiveNav(item.label);
           }
@@ -202,14 +200,11 @@ const Menu: React.FC = () => {
   const handleNavClick = (label: string) => {
     const container = scrollContainerRef.current;
     if (!container) return;
-
     setTransitioning(true);
-
     document.getElementById(label)?.scrollIntoView({
       behavior: "smooth",
       block: isMobile ? "start" : "center",
     });
-
     setTimeout(() => {
       setActiveNav(label);
       setTransitioning(false);
@@ -217,27 +212,27 @@ const Menu: React.FC = () => {
   };
 
   return (
-    <>
-      <main className="md:flex">
-        <div className="xl:w-[50vw] w-full h-[40vh] xl:h-screen z-10 items-center fixed xl:top-0 top-0 xl:left-0 left-0 right-0 xl:bottom-0 bottom-auto">
-          <div
-            style={{ backgroundImage: `url(${assets.menuPage})` }}
-            className="relative w-full h-full bg-cover bg-center items-center bg-no-repeat"
-          />
-          <Link
-            to={"/"}
-            className="font-chillax z-10 text-white text-center pt-6 xl:pt-12 pb-6 xl:pb-12 absolute top-0 left-0 right-0 bottom-auto font-medium text-2xl sm:text-[32px]"
-          >
-            nique.
-          </Link>
-          <div className="z-0 opacity-[.5] bg-[#050505] absolute top-0 left-0 right-0 bottom-0" />
-          <div className="absolute top-0 left-0 right-0 bottom-0 z-10 flex flex-col items-center justify-center text-center h-full px-4 text-white">
-            <div className="w-full max-w-[50rem] mx-auto text-center pt-6">
-              <div className="mb-4 xl:mb-8">
-                <h1 className="font-bitter text-[#FACE8D] text-3xl sm:text-4xl xl:text-5xl 2xl:text-[80px] mb-1">
+    <main className="md:flex">
+      {/* Left Side */}
+      <div className="xl:w-[50vw] w-full h-[40vh] xl:h-screen fixed xl:top-0 top-0 xl:left-0 left-0 z-10">
+        <div
+          className="relative w-full h-full bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${assets.menuPage})` }}
+        >
+          <div className="absolute inset-0 bg-[#050505] opacity-50 z-0" />
+          <div className="absolute inset-0 z-10 flex flex-col justify-between">
+            <Link
+              to="/"
+              className="text-white text-center pt-6 xl:pt-12 font-chillax font-medium text-xl sm:text-2xl"
+            >
+              nique.
+            </Link>
+            <div className="flex-1 flex items-center justify-center text-center px-4">
+              <div className="max-w-[50rem]">
+                <h1 className="font-bitter text-[#FACE8D] text-2xl sm:text-3xl xl:text-4xl 2xl:text-5xl mb-1">
                   Check Out
                 </h1>
-                <h1 className="font-chillax text-white text-4xl sm:text-5xl xl:text-6xl 2xl:text-[80px] font-bold tracking-[-2px]">
+                <h1 className="font-chillax text-white text-3xl sm:text-4xl xl:text-5xl 2xl:text-6xl font-bold tracking-[-1px]">
                   Our Menu
                 </h1>
               </div>
@@ -247,90 +242,82 @@ const Menu: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="xl:w-[50vw] w-full xl:relative xl:left-[50vw] bg-[#050505] overflow-y-auto xl:h-screen h-[60vh] fixed xl:top-0 top-[40vh] bottom-0">
-          {/* Navigation - Keep exactly as is */}
-          <div className="z-[10] text-white gap-4 xl:gap-12 bg-[#050505] justify-center items-center py-4 flex sticky top-0 left-0 right-0 overflow-x-auto xl:overflow-visible px-4 xl:px-0">
-            {menuData.map((item, index) => (
-              <a
-                key={index}
-                href={`#${item.label}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(item.label);
-                }}
-                className={`font-chillax whitespace-nowrap relative transition-colors duration-500 ease-in-out text-sm xl:text-base px-2 ${
-                  activeNav === item.label
-                    ? "text-[#face8d] font-medium"
-                    : "text-[rgba(255,255,255,0.6)] hover:text-white"
-                }`}
-              >
-                {item.name}
-              </a>
-            ))}
-          </div>
+      </div>
 
-          {/* Menu Sections */}
-          {menuData.map((category) => (
-            <section
-              key={category.label}
-              id={category.label}
-              className="p-14 pt-20"
+      {/* Right Side */}
+      <div
+        ref={scrollContainerRef}
+        className="xl:w-[50vw] w-full xl:relative xl:left-[50vw] bg-[#050505] overflow-y-auto xl:h-screen h-[60vh] fixed xl:top-0 top-[40vh] bottom-0"
+      >
+        {/* Navigation Tabs */}
+        <div className="z-[10] text-white gap-4 xl:gap-12 bg-[#050505] justify-center items-center py-4 flex sticky top-0 left-0 right-0 overflow-x-auto xl:overflow-visible px-4 xl:px-0">
+          {menuData.map((item, index) => (
+            <a
+              key={index}
+              href={`#${item.label}`}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick(item.label);
+              }}
+              className={`font-chillax whitespace-nowrap relative transition-colors duration-500 ease-in-out text-sm md:text-base px-2 ${
+                activeNav === item.label
+                  ? "text-[#face8d] font-semibold"
+                  : "text-white/60 hover:text-white"
+              }`}
             >
               {item.name}
             </a>
           ))}
         </div>
+
         {/* Menu Sections */}
         {menuData.map((category) => (
           <section
             key={category.label}
             id={category.label}
-            className="p-14 pt-20"
+            className="p-6 md:p-10 xl:p-14 pt-4 sm:pt-20"
           >
-            <h2 className="font-bitter text-3xl xl:text-[3.5rem] text-[#face8d] leading-[90%] mb-8 xl:mb-12">
+            <h2 className="font-bitter text-2xl sm:text-3xl xl:text-4xl text-[#face8d] leading-tight mb-6 xl:mb-10">
               {category.name}
             </h2>
-            <div className="font-chillax flex flex-col items-start gap-8 xl:gap-12 text-white">
+            <div className="font-chillax flex flex-col items-start gap-6 xl:gap-10 text-white">
               {category.items.map((item) => (
-                <div
-                  key={item.id}
-                  className="flex flex-none items-center relative self-stretch gap-4 xl:gap-6"
-                >
-                  <div className="w-20 xl:w-24 h-20 xl:h-24 rounded-lg xl:rounded-xl relative overflow-hidden flex-shrink-0">
+                <div key={item.id} className="flex items-center gap-4 xl:gap-6">
+                  <div className="w-20 xl:w-24 h-20 xl:h-24 rounded-lg overflow-hidden">
                     <img
                       src={item.image}
                       alt={item.name}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="flex flex-1 flex-col items-stretch gap-1 xl:gap-2">
+                  <div className="flex-1 flex flex-col gap-1">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2 xl:gap-3">
-                        <h3 className="text-lg xl:text-xl font-medium">
+                        <h2 className="text-base sm:text-lg xl:text-xl font-semibold">
                           {item.name}
-                        </h3>
+                        </h2>
                         {item.vegetarian && (
                           <Leaf className="text-[#face8d] w-4 h-4 xl:w-5 xl:h-5" />
                         )}
                       </div>
-                      <div className="flex flex-none gap-2 xl:gap-3 items-center">
+                      <div className="flex gap-2 text-sm sm:text-base xl:text-lg">
                         {item.discount ? (
                           <>
-                            <span className="text-base xl:text-lg line-through text-[rgba(255,255,255,0.4)]">
+                            <span className="line-through text-white/40">
                               {item.price}
                             </span>
-                            <span className="text-base xl:text-lg text-white font-medium">
+                            <span className="text-white font-medium">
                               {item.discount}
                             </span>
                           </>
                         ) : (
-                          <span className="text-base xl:text-lg text-white font-medium">
+                          <span className="text-white font-medium">
                             {item.price}
                           </span>
                         )}
                       </div>
                     </div>
-                    <p className="text-sm xl:text-base text-[rgba(255,255,255,0.6)] leading-relaxed">
+                    <p className="text-sm sm:text-base text-white/60 leading-snug">
                       {item.description}
                     </p>
                   </div>
