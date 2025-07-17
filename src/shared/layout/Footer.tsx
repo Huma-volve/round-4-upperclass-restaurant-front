@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
 
         {/* Middle: Pages (second column on small screens) */}
         <div className="text-center lg:text-left">
-          <h3 className="text-white font-semibold mb-4">Pages</h3>
+          <h2 className="text-white font-semibold mb-4">Pages</h2>
           <ul className="space-y-2">
             <li>
               <Link to="/menu">Menu</Link>
@@ -49,7 +49,7 @@ const Footer: React.FC = () => {
 
         {/* Right: Utility Pages (third column on small screens) */}
         <div className="text-center lg:text-left">
-          <h3 className="text-white font-semibold mb-4">Utility Pages</h3>
+          <h2 className="text-white font-semibold mb-4">Utility Pages</h2>
           <ul className="space-y-2">
             <li>
               <Link to="/styleguide">Styleguide</Link>

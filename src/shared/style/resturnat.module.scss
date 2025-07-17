@@ -1,0 +1,25 @@
+.viewport {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background-color: black; /* تمنع فلاش أبيض في الخلفية */
+}
+
+.image-track {
+  display: flex;
+  width: fit-content;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.track-image {
+  width: 50vw;
+  height: 100vh;
+  object-fit: cover;        /* ✅ ترجع عرض الصور بشكل جمالي */
+  flex-shrink: 0;
+  display: block;           /* ✅ تمنع الفراغات حول الصور */
+  opacity: 1;               /* ✅ تمنع الشفافية */
+  background: transparent;  /* ✅ تمنع أي لون خلفية */
+  filter: none;             /* ✅ تمنع أي تأثير */
+}
