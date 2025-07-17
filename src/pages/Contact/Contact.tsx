@@ -13,6 +13,7 @@ export default function ContactPage() {
       <div className=" flex flex-col justify-between items-center p-10 bg-cover bg-center h-auto md:h-screen md:sticky md:top-0" style={{ backgroundImage: `url(${assets.contact})` }}>
         <div>
           <Link to={"/"}>
+            
           <p className="font-medium text-3xl">nique.</p>
           </Link>
         </div>
