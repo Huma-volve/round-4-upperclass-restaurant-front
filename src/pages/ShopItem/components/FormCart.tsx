@@ -89,7 +89,7 @@ export function FormCart() {
                       {...field}
                       value={field.value ?? ""}
                       onChange={(e) => field.onChange(e.target.valueAsNumber)}
-                      className="h-[64px] border border-[#ffffff1a] hover:border-white"
+                      className="text-[18px] h-[64px] border border-[#ffffff1a] hover:border-white"
                     />
                   </FormControl>
                   <FormMessage className="!text-sm" />
@@ -102,7 +102,7 @@ export function FormCart() {
               control={form.control}
               name="color"
               render={({ field }) => (
-                <FormItem className="h-[64px]">
+                <FormItem>
                   <FormLabel className="text-[#ffffffcc] font-chillax text-[18px]">
                     Color
                   </FormLabel>
@@ -111,7 +111,10 @@ export function FormCart() {
                     defaultValue={field.value}
                   >
                     <FormControl>
-                      <SelectTrigger className="text-[#333] w-full h-[64px] border border-[#ffffff1a] focus:border-white">
+                      <SelectTrigger
+                        style={{ height: "64px" }}
+                        className="text-[#333] w-full border border-[#ffffff1a] focus:border-white"
+                      >
                         <SelectValue placeholder="Select Color" />
                       </SelectTrigger>
                     </FormControl>
@@ -131,7 +134,7 @@ export function FormCart() {
         <Sheet open={open} onOpenChange={setOpen}>
           <Button
             type="submit"
-            className="mt-8 bg-[#f8d49e] text-[#081212] h-[56px] w-full rounded-[50px] font-medium cursor-pointer text-[15px] "
+            className="mt-8 bg-[#f8d49e] hover:bg-[#face8de0] text-[#081212] h-[56px] w-full rounded-[50px] font-medium cursor-pointer text-[15px] "
           >
             ADD TO CART
           </Button>
