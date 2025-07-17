@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/shared/layout/Navbar";
 import { assets } from "@/shared/assets/assets";
 import Footer from "@/shared/layout/Footer";
+import { Link } from "react-router-dom";
 
 export default function ContactPage() {
   return (
@@ -12,7 +13,9 @@ export default function ContactPage() {
       {/* Left Side */}
       <div className=" flex flex-col justify-between items-center p-10 bg-cover bg-center h-auto md:h-screen md:sticky md:top-0" style={{ backgroundImage: `url(${assets.contact})` }}>
         <div>
+          <Link to={"/"}>
           <p className="font-medium text-3xl">nique.</p>
+          </Link>
         </div>
         <div className="text-center">
           <p className="font-bitter text-[#FACE8D] text-3xl sm:text-4xl xl:text-5xl 2xl:text-[80px] leading-[90%]">Contact</p>
