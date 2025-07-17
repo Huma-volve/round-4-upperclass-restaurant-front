@@ -72,7 +72,7 @@ const ClassesComp = () => {
   }, []);
 
   return (
-    <div className={classesStyle.viewport} ref={containerRef}>
+    <div className={`${classesStyle.viewport} classes`} ref={containerRef}>
       <div
         className={classesStyle["image-track"]}
         style={{
@@ -84,14 +84,20 @@ const ClassesComp = () => {
             <motion.div
               className={`${classesStyle["slide-content"]} font-chillax    `}
               initial={{ opacity: 0, y: -150 }}
-              animate={{ opacity: 1, y: 0 }} // ينزل لمكانه ويظهر
+              animate={{ opacity: 1, y: -100 }} // ينزل لمكانه ويظهر
               transition={{ duration: 3 }} // وقت الحركة
             >
-              <h3 className="font-bold text-yellow-500  font-bitter">
+              <h3
+                className={`${classesStyle["class-title"]} font-bold text-yellow-500 font-bitter`}
+              >
                 {content[idx].title}
               </h3>
-              <p className="font-bold text-2xl">{content[idx].description}</p>
-              <span className={`${classesStyle["slide-date"]} text-yellow-500`}>
+              <p
+                className={`${classesStyle["class-description"]} font-bold text-2xl`}
+              >
+                {content[idx].description}
+              </p>
+              <span className={`${classesStyle["class-date"]} text-yellow-500`}>
                 {content[idx].date}
               </span>
             </motion.div>
