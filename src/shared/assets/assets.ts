@@ -42,6 +42,7 @@ import blogHomeCard2 from "./blog/card2.jpg";
 import blogHomeCard3 from "./blog/card3.jpg";
 import blogHomeCard4 from "./blog/card4.jpg";
 import blogHomeCard5 from "./blog/card5.jpg";
+
 export const assets = {
   Noodle,
   Teacher,

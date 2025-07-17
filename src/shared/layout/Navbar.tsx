@@ -14,7 +14,10 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { CartSide } from "../reuseableComponents/CartSide";
+import { useSelector } from "react-redux";
+import type { RootState } from "../store/store";
 
 export default function Navbar() {
   const pages = [
@@ -27,7 +30,16 @@ export default function Navbar() {
   ];
 
   const [open, setOpen] = useState(false);
+  const { cartItem } = useSelector((state: RootState) => state.cart);
+  const [count, setCount] = useState(0);
 
+  useEffect(() => {
+    let totalCount = 0;
+    cartItem.map((el) => {
+      return (totalCount += el.quantity || 1);
+    });
+    setCount(totalCount);
+  }, [cartItem]);
   return (
     <nav className="flex items-center justify-between px-1 py-3 gap-2 bg-white rounded-full z-3  max-w-3xl mx-auto mt-4 font-chillax">
       {/* Left Icons */}
@@ -40,7 +52,9 @@ export default function Navbar() {
             </SheetTrigger>
             <SheetContent side="left">
               <SheetHeader>
-                <SheetTitle className="text-left text-xl font-semibold">Pages</SheetTitle>
+                <SheetTitle className="text-left text-xl font-semibold">
+                  Pages
+                </SheetTitle>
                 <SheetDescription>Navigate through site</SheetDescription>
               </SheetHeader>
               <div className="mt-6 flex flex-col gap-2">
@@ -99,7 +113,22 @@ export default function Navbar() {
 
         {/* Icons beside the menu */}
         <Clock className="w-5 h-5 cursor-pointer text-zinc-800" />
-        <ShoppingCart className="w-5 h-5 cursor-pointer text-zinc-800" />
+        <Sheet>
+          <SheetTrigger asChild>
+            <div className="relative">
+              <ShoppingCart className="w-5 h-5 cursor-pointer text-zinc-800" />
+              {count >= 1 && (
+                <p
+                  className="absolute top-[-12px] text-[15px]
+              left-[8px] bg-[#face8d] rounded-[50%] h-[22px] w-[20px] text-center"
+                >
+                  {count}
+                </p>
+              )}
+            </div>
+          </SheetTrigger>
+          <CartSide />
+        </Sheet>
       </div>
 
       {/* Center Links (optional) */}

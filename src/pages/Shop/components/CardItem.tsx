@@ -11,7 +11,7 @@ function CardItem({
   id,
 }: ShopItem) {
   return (
-    <div className="flex gap-5">
+    <div className="flex gap-5 px-3">
       <Link to={`/shopItem/${id}`} className="relative w-[220px] ">
         <img
           src={image}

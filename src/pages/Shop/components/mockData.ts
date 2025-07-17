@@ -12,6 +12,7 @@ export let data = [
     image: assets.shopBack,
     logo: assets.card1,
     id: 1,
+    quantity: 1,
   },
   {
     title: "Gift Card Light",
@@ -24,6 +25,7 @@ export let data = [
     image: assets.shopBack,
     logo: assets.card2,
     id: 2,
+    quantity: 1,
   },
   {
     title: "Gift Card Light",
@@ -36,6 +38,7 @@ export let data = [
     image: assets.shopBack,
     logo: assets.card3,
     id: 3,
+    quantity: 1,
   },
   {
     title: "Gift Card Light",
@@ -48,5 +51,6 @@ export let data = [
     image: assets.shopBack,
     logo: assets.card4,
     id: 4,
+    quantity: 1,
   },
 ];

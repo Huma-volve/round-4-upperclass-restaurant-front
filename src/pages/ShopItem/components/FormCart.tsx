@@ -18,12 +18,19 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Sheet, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet } from "@/components/ui/sheet";
 import { CartSide } from "@/shared/reuseableComponents/CartSide";
+import { useAppDispatch } from "@/shared/store/store";
+import type { ShopItem } from "@/shared/types/types";
+import { Toaster, toast } from "react-hot-toast";
+import { useState } from "react";
+import { addItemToCart } from "@/shared/features/cart/cartSlice";
+import { useParams } from "react-router-dom";
+import { data } from "@/pages/Shop/components/mockData";
 
 const formSchema = z.object({
-  count: z.number().min(1, {
-    message: "",
+  count: z.coerce.number().min(1, {
+    message: "please, Type an integer",
   }),
   color: z.string().min(1, {
     message: "Color must be specified",
@@ -31,16 +38,34 @@ const formSchema = z.object({
 });
 
 export function FormCart() {
-  const form = useForm<z.infer<typeof formSchema>>({
+  const { id } = useParams();
+  const [open, setOpen] = useState(false);
+  const productItem = data.filter((el) => {
+    if (id && el.id === +id) {
+      return el;
+    }
+  });
+  type FormSchemaType = z.infer<typeof formSchema>;
+
+  const form = useForm<FormSchemaType>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       count: 1,
       color: "",
     },
   });
-
+  const dispatch = useAppDispatch();
+  const funcShopCart = (item: ShopItem, quantity: number, color: string) => {
+    const newItem = { ...item, quantity, color };
+    dispatch(addItemToCart(newItem));
+    toast.success("Product added successfully!", {
+      position: "top-right",
+    });
+  };
   function onSubmit(values: z.infer<typeof formSchema>) {
+    funcShopCart(productItem[0], values.count, values.color);
     console.log(values);
+    setOpen(true);
   }
 
   return (
@@ -58,12 +83,12 @@ export function FormCart() {
                   </FormLabel>
                   <FormControl>
                     <Input
-                      placeholder="shadcn"
+                      placeholder=""
                       {...field}
                       className="h-[64px] border border-[#ffffff1a] hover:border-white"
                     />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className="!text-sm" />
                 </FormItem>
               )}
             />
@@ -73,7 +98,7 @@ export function FormCart() {
               control={form.control}
               name="color"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="h-[64px]">
                   <FormLabel className="text-[#ffffffcc] font-chillax text-[18px]">
                     Color
                   </FormLabel>
@@ -93,24 +118,23 @@ export function FormCart() {
                       <SelectItem value="Gold">Gold</SelectItem>
                     </SelectContent>
                   </Select>
-                  <FormMessage />
+                  <FormMessage className="!text-sm" />
                 </FormItem>
               )}
             />
           </div>
         </div>
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button
-              type="submit"
-              className="mt-5 bg-[#f8d49e] text-[#081212] h-[56px] w-full rounded-[50px] font-medium cursor-pointer text-[15px] "
-            >
-              ADD TO CART
-            </Button>
-          </SheetTrigger>
+        <Sheet open={open} onOpenChange={setOpen}>
+          <Button
+            type="submit"
+            className="mt-5 bg-[#f8d49e] text-[#081212] h-[56px] w-full rounded-[50px] font-medium cursor-pointer text-[15px] "
+          >
+            ADD TO CART
+          </Button>
           <CartSide />
         </Sheet>
       </form>
+      <Toaster />
     </Form>
   );
 }
