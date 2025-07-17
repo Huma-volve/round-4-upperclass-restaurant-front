@@ -1,18 +1,9 @@
 import type { ShopItem } from "@/shared/types/types";
-import { Link } from "react-router-dom";
 
-function CardItem({
-  title,
-  brief,
-  price,
-  oldPrice,
-  image,
-  logo,
-  id,
-}: ShopItem) {
+function CardItem({ title, brief, price, oldPrice, image, logo }: ShopItem) {
   return (
     <div className="flex gap-5 px-3">
-      <Link to={`/shopItem/${id}`} className="relative w-[220px] ">
+      <span className="relative w-[220px] ">
         <img
           src={image}
           alt="notFound"
@@ -23,7 +14,7 @@ function CardItem({
           alt="notFound"
           className="absolute w-[120px] h-[64px] left-[32px] top-[45px]"
         />
-      </Link>
+      </span>
       <div>
         <div className="flex gap-3 text-[15px] font-medium mb-1">
           <p className="text-[#face8d]">$ {price} USD</p>

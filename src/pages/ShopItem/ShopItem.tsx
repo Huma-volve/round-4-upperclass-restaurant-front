@@ -23,7 +23,7 @@ function ShopItemPage() {
     <div className="flex bg-[#050505] min-h-screen max-md:flex-col">
       <LeftSide image={dataItem?.logo || assets.card1} />
       <RightSide data={dataItem} />
-      <div className="absolute bottom-[30px] left-[50%] translate-x-[-50%]">
+      <div className="fixed bottom-[30px] left-[50%] translate-x-[-50%]">
         <Navbar />
       </div>
     </div>
