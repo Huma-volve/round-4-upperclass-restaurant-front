@@ -7,6 +7,7 @@ import {
   SheetContent,
   SheetHeader,
   SheetTitle,
+  SheetDescription,
 } from "@/components/ui/sheet";
 import {
   Popover,
@@ -35,13 +36,12 @@ export default function Navbar() {
         <div className="block md:hidden">
           <Sheet>
             <SheetTrigger asChild>
-              <Menu className="w-5 h-5 cursor-pointer text-zinc-800" />
+              <Menu className="w-5 h-5 cursor-pointer" />
             </SheetTrigger>
             <SheetContent side="left">
               <SheetHeader>
-                <SheetTitle className="text-left text-xl font-semibold">
-                  Pages
-                </SheetTitle>
+                <SheetTitle className="text-left text-xl font-semibold">Pages</SheetTitle>
+                <SheetDescription>Navigate through site</SheetDescription>
               </SheetHeader>
               <div className="mt-6 flex flex-col gap-2">
                 {pages.map(({ label, path }) => (
