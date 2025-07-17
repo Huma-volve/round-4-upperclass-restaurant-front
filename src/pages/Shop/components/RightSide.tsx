@@ -1,8 +1,16 @@
+import Footer from "@/shared/layout/Footer";
 import CardItem from "./CardItem";
 import { data } from "./mockData";
-import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function RightSide() {
+  const navigate = useNavigate();
+  const onClickNew = (id: number) => {
+    navigate(`/shop/${id}`);
+    setTimeout(() => {
+      scrollTo(0, 0);
+    }, 400);
+  };
   return (
     <div
       className="flex flex-col gap-12 absolute right-0 w-[47%] h-auto mt-15 mb-10
@@ -10,9 +18,8 @@ function RightSide() {
     >
       {data.map((item, index) => {
         return (
-          <React.Fragment key={`el-${index}`}>
+          <div key={`el-${index}`} onClick={() => onClickNew(item.id)}>
             <CardItem
-              id={item.id}
               brief={item.brief}
               image={item.image}
               logo={item.logo}
@@ -21,9 +28,10 @@ function RightSide() {
               title={item.title}
               details={item.details}
             />
-          </React.Fragment>
+          </div>
         );
       })}
+      <Footer />
     </div>
   );
 }

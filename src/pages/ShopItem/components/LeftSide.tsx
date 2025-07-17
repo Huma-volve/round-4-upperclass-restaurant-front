@@ -14,7 +14,7 @@ function LeftSide({image}:{image:string}) {
         </Link>
       </div>
       <div className="flex flex-col items-center justify-center h-[75%]">
-       <img src={image} alt="notFound" className="w-[300px]"/>
+       <img src={image} alt="notFound" className="w-[300px] max-md:w-[180px]"/>
       </div>
       
     </div>
