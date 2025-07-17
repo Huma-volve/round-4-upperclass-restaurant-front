@@ -55,7 +55,7 @@ export default function Navbar() {
                   </Link>
                 ))}
                 <Link to="/booktable">
-                  <Button className="rounded-4xl bg-black text-white py-4 px-6 hover:bg-zinc-900 text-sm tracking-wide flex gap-2.5 font-medium">
+                  <Button className="rounded-4xl bg-black text-white py-4 px-6 hover:bg-zinc-900 text-sm tracking-wide flex gap-2.5 font-medium cursor-pointer">
                     BOOK A TABLE
                   </Button>
                 </Link>
@@ -118,7 +118,7 @@ export default function Navbar() {
       {/* CTA Button */}
       <div className="">
         <Link to="/booktable">
-          <Button className="rounded-4xl bg-black text-white py-4 px-6 hover:bg-zinc-900 text-sm tracking-wide flex gap-2.5 font-medium">
+          <Button className="rounded-4xl bg-black text-white py-4 px-6 hover:bg-zinc-900 text-sm tracking-wide flex gap-2.5 font-medium cursor-pointer">
             BOOK A TABLE
           </Button>
         </Link>
