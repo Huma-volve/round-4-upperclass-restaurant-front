@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { data } from "../Shop/components/mockData";
 import type { ShopItem } from "@/shared/types/types";
 import { assets } from "@/shared/assets/assets";
+import Navbar from "@/shared/layout/Navbar";
 
 function ShopItemPage() {
   let { id } = useParams();
@@ -22,6 +23,9 @@ function ShopItemPage() {
     <div className="flex bg-[#050505] min-h-screen max-md:flex-col">
       <LeftSide image={dataItem?.logo || assets.card1} />
       <RightSide data={dataItem} />
+      <div className="absolute bottom-[30px] left-[50%] translate-x-[-50%]">
+        <Navbar />
+      </div>
     </div>
   );
 }

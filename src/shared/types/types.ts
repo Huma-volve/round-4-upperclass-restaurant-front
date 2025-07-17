@@ -6,5 +6,7 @@ export interface ShopItem {
   oldPrice: number;
   image: string;
   logo: string;
-  id:number
+  id:number;
+  quantity?: number;
+  color?:string
 }
