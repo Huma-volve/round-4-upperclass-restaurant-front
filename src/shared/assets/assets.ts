@@ -23,6 +23,10 @@ import menu11 from "./menu-11.webp";
 import menu12 from "./menu-12.webp";
 import menu13 from "./menu-13.webp";
 import menu14 from "./menu-14.webp";
+<<<<<<< HEAD
+import logoFull from "./logoFull.svg";
+import shopBack from "./shopBack.webp";
+=======
 import resturant1 from "./resturant-1.png"
 import resturant2 from "./resturant-2.png"
 import resturant3 from "./resturant-3.png"
@@ -40,6 +44,7 @@ import blogHomeCard2 from "./blog/card2.jpg";
 import blogHomeCard3 from "./blog/card3.jpg";
 import blogHomeCard4 from "./blog/card4.jpg";
 import blogHomeCard5 from "./blog/card5.jpg";
+>>>>>>> 77a2242aebca3964764b7a2e4de80196e44d505c
 
 export const assets = {
   Noodle,
@@ -71,6 +76,10 @@ export const assets = {
   menu12,
   menu13,
   menu14,
+<<<<<<< HEAD
+  logoFull,
+  shopBack,
+=======
   resturant1,
   resturant2,
   resturant3,
@@ -84,4 +93,5 @@ export const assets = {
   blogHomeCard3,
   blogHomeCard4,
   blogHomeCard5,
+>>>>>>> 77a2242aebca3964764b7a2e4de80196e44d505c
 };

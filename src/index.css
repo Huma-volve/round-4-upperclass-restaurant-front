@@ -9,7 +9,9 @@
   scroll-behavior: auto;
   box-sizing: border-box;
 }
-
+body{
+  background-color: #050505;
+}
 .font-chillax {
   font-family: "Chillax", sans-serif;
 }
@@ -18,6 +20,9 @@
   font-family: "Bitter Rose", cursive;
 }
 
+@theme {
+  --background-image-custom: url("./shared/assets/shopBack.webp");
+}
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -128,8 +133,5 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
   }
 }
