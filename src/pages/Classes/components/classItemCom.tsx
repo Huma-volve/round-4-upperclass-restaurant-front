@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { assets } from "../../../shared/assets/assets";
+// import Footer from "@/shared/layout/Footer";
 const ClassItemCom = () => {
   return (
     <motion.div
@@ -110,6 +111,7 @@ const ClassItemCom = () => {
               massa id neque aliquam.
             </p>
           </div>
+          {/* <Footer/> */}
         </div>
       </div>
     </motion.div>
