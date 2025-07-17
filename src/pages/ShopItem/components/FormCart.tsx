@@ -29,7 +29,7 @@ import { useParams } from "react-router-dom";
 import { data } from "@/pages/Shop/components/mockData";
 
 const formSchema = z.object({
-  count: z.coerce.number().min(1, {
+  count: z.number().min(1, {
     message: "please, Type an integer",
   }),
   color: z.string().min(1, {
@@ -83,8 +83,12 @@ export function FormCart() {
                   </FormLabel>
                   <FormControl>
                     <Input
+                      type="number"
+                      min={1}
                       placeholder=""
                       {...field}
+                      value={field.value ?? ""}
+                      onChange={(e) => field.onChange(e.target.valueAsNumber)}
                       className="h-[64px] border border-[#ffffff1a] hover:border-white"
                     />
                   </FormControl>
@@ -127,7 +131,7 @@ export function FormCart() {
         <Sheet open={open} onOpenChange={setOpen}>
           <Button
             type="submit"
-            className="mt-5 bg-[#f8d49e] text-[#081212] h-[56px] w-full rounded-[50px] font-medium cursor-pointer text-[15px] "
+            className="mt-8 bg-[#f8d49e] text-[#081212] h-[56px] w-full rounded-[50px] font-medium cursor-pointer text-[15px] "
           >
             ADD TO CART
           </Button>
