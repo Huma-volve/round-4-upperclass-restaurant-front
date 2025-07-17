@@ -1,8 +1,9 @@
 import { Route, Routes } from "react-router-dom";
-
 import Layout from "./shared/layout/Layout";
 import FrontPage from "./pages/FrontPage/FrontPage";
 import Menu from "./pages/Menu/Menu";
+import Shop from "./pages/Shop/Shop";
+import ShopItemPage from "./pages/ShopItem/ShopItem";
 import Restaurant from "./pages/Restaurant/Restaurant";
 import ClassesPage from "./pages/Classes/classes";
 import Classitem from "./pages/Classes/classitem";
@@ -26,6 +27,8 @@ function App() {
           <Route path="booktable" element={<BookTable />} />
           <Route path="blog" element={<Blog />} />
           <Route path="blog/:id" element={<BlogItems />} />
+          <Route path="shop" element={<Shop />} />
+          <Route path="shopItem/:id" element={<ShopItemPage />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

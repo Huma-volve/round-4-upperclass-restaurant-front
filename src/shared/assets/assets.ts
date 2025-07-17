@@ -23,6 +23,8 @@ import menu11 from "./menu-11.webp";
 import menu12 from "./menu-12.webp";
 import menu13 from "./menu-13.webp";
 import menu14 from "./menu-14.webp";
+import logoFull from "./logoFull.svg";
+import shopBack from "./shopBack.webp";
 import resturant1 from "./resturant-1.png"
 import resturant2 from "./resturant-2.png"
 import resturant3 from "./resturant-3.png"
@@ -71,6 +73,8 @@ export const assets = {
   menu12,
   menu13,
   menu14,
+  logoFull,
+  shopBack,
   resturant1,
   resturant2,
   resturant3,
