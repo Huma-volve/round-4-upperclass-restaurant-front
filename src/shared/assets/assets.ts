@@ -18,6 +18,8 @@ import menu11 from "./menu-11.webp";
 import menu12 from "./menu-12.webp";
 import menu13 from "./menu-13.webp";
 import menu14 from "./menu-14.webp";
+import logoFull from "./logoFull.svg";
+import shopBack from "./shopBack.webp";
 
 export const assets = {
   card1,
@@ -40,4 +42,6 @@ export const assets = {
   menu12,
   menu13,
   menu14,
+  logoFull,
+  shopBack,
 };
