@@ -6,7 +6,7 @@ import { data } from "../Shop/components/mockData";
 import type { ShopItem } from "@/shared/types/types";
 import { assets } from "@/shared/assets/assets";
 
-function ShopItem() {
+function ShopItemPage() {
   let { id } = useParams();
   let [dataItem, setDataItem] = useState<ShopItem>();
   useEffect(() => {
@@ -26,4 +26,4 @@ function ShopItem() {
   );
 }
 
-export default ShopItem;
+export default ShopItemPage;
