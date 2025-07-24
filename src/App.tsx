@@ -14,7 +14,8 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Layout/>}/>
+
+        <Route path="/" element={<Layout/>}>
         <Route path="/" element={<FrontPage />} />
         <Route path="/menu" element={<Menu />} />
       <Route path="/contact" element={<Contact/>}/>
@@ -22,6 +23,7 @@ function App() {
       <Route path="/Blog" element={<Blog/>}/>
       <Route path="/blog/:id" element={<BlogItems />} />
       <Route path="*" element={<NotFound/>} />
+        </Route>
     </Routes>
     </>
   );
